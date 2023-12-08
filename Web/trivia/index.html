@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+
+    <script>
+
+        function check(button, isCorrect){
+            if (isCorrect){
+                button.style.backgroundColor = 'green';
+                document.getElementById('result').textContent = 'Correct';
+            }
+            else{
+                button.style.backgroundColor = 'red';
+                document.getElementById('result').textContent = 'Incorrect';
+            }
+        }
+
+        function checkCountry(){
+            const userInput = document.getElementById('country').value.toLowerCase();
+            const correct = 'italy';
+
+            if (userInput == correct){
+                document.getElementById('country').style.backgroundColor = 'lightgreen';
+                document.getElementById('text').textContent = 'Correct!';
+            } else {
+                document.getElementById('country').style.backgroundColor = 'red';
+                document.getElementById('text').textContent = 'Incorrect';
+            }
+        }
+
+    </script>
+
+    <body>d
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+
+                <button onclick="check(this, false)">6.3 people per sheep</button>
+                <button onclick="check(this, true)">5.6 people per sheep</button>
+                <button onclick="check(this, false)">0.8 people per sheep</button>
+                <button onclick="check(this, false)">2.4 people per sheep</button>
+                <button onclick="check(this, false)">4.7 people per sheep</button>
+
+                <p id="result"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Which country looks like a shoe?</h3>
+
+                <input type="text" id="country" placeholder="country"/>
+                <button type="submit" onclick="checkCountry()">Submit!</button>
+
+                <p id='text'></p>
+
+            </div>
+        </div>
+    </body>
+
+</html>
